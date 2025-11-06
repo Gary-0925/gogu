@@ -1,0 +1,99 @@
+body {
+    background: #1f2328;
+    color: #bfbfbf;
+}
+
+a {
+    color: #8ab1b8;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #3e94e9;
+    text-decoration: underline;
+}
+
+.card {
+    background: #2b2c2f;
+    border-radius: 0.4em;
+    box-shadow: 0.3em 0.3em 0.7em #00000015;
+    transition: border 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: #3e3e3e 0.2em solid;
+    padding-top: 3px;
+    padding-right: 10px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+}
+
+.card:hover {
+    border: #0c2845 0.2em solid;
+}
+
+
+button {
+    background-color: #54575c;
+    color: white;
+    border-radius: 5px;
+    border-style: none;
+    box-sizing: border-box;
+    padding: 10px 15px;
+}
+
+button:hover {
+    color: #c6daeb;
+}
+
+button:active {
+    box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%);
+    outline: none;
+    border: 2px solid #0c2845;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #171717;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #4f4f4f;
+}
+
+
+textarea {
+    background-color: #1f2328;
+    color: white;
+}
+
+code {
+    background-color: #151719;
+    border-radius: 5px;
+    width: 90%;
+}
+
+pre {
+    background-color: #151719;
+    padding: 3px;
+    border-radius: 5px;
+    width: 90%;
+}

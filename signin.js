@@ -40,7 +40,7 @@ async function sign_in() {
 
 async function load() {
     if (localStorage.getItem("name") != null) {
-        window.location.replace("/gogu/message.html");
+        window.location.replace("/message.html");
     } else {
         document.getElementById("titler").innerHTML = "登录";
         document.getElementById("container").innerHTML = `
@@ -48,7 +48,7 @@ async function load() {
                 <p>忘记 priKey 无法找回账号，或许可以找管理员把 priKey 要回来</p>
                 <textarea id="name_text" rows="2" cols="20" placeholder="昵称" spellcheck=false></textarea>
                 <textarea id="prikey_text" rows="20" placeholder="priKey\n请不要删除前后的英文部分" spellcheck=false style="text-align: center; width: 100%"></textarea>
-                <p style="text-align: right;">或者<a href="/gogu/signup.html">注册</a></p>
+                <p style="text-align: right;">或者<a href="/signup.html">注册</a></p>
                 <button onclick="sign_in()">登录</button>
             </div>
         `;

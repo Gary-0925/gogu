@@ -16,7 +16,7 @@ function check_other_char(str)
 
 function go_im()
 {
-    window.location.replace("/gogu/view-page.html?id=" + getArgs("id"));
+    window.location.replace("/view-page.html?id=" + getArgs("id"));
 }
 
 function verify_article(id, pubkey, sign) {
@@ -55,7 +55,7 @@ async function load_list() {
                         ${localStorage.getItem("name")}
                     </div>
                     <!--div style="text-align: right;">
-                        <a href="/gogu/prikey.html">查看我的 priKey</a>
+                        <a href="/prikey.html">查看我的 priKey</a>
                         <br>
                         <a href="javascript:sign_out()" style="color: #ff0000">登出</a>
                     </div-->
@@ -105,7 +105,7 @@ async function load_list() {
                             <div style="width: 70%; height: 100%;">
                                 <div class="card" style="width: 100px; text-align: center;">${article[0].name}</div>
                                 <button onclick="go_im()">点击前往沉浸版（不建议，可能导致 priKey 被偷走）</button>
-                                <iframe src="/gogu/view-page.html?id=${getArgs("id")}" sandbox="allow-scripts allow-same-origin" style="height: 100%; width: 100%; background-color: white;"></iframe>
+                                <iframe src="/view-page.html?id=${getArgs("id")}" sandbox="allow-scripts allow-same-origin" style="height: 100%; width: 100%; background-color: white;"></iframe>
                             </div>
                         </div>
                         <br>
@@ -121,7 +121,7 @@ async function load_list() {
             }
         }
     } else {
-        window.location.replace("/gogu/signup.html");
+        window.location.replace("/signup.html");
     }
 }
 
@@ -162,7 +162,7 @@ async function send_article() {
     }
 }
 
-write_path("页面", "/gogu/page.html");
-if (getArgs('id') != null) write_path(getArgs('id'), `/gogu/page.html?id=${getArgs('id')})`);
+write_path("页面", "/page.html");
+if (getArgs('id') != null) write_path(getArgs('id'), `/page.html?id=${getArgs('id')})`);
 
 load_list();

@@ -4,23 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <title>咯咕</title>
-    <script src="/gogu/js/jsencrypt.min.js"></script>
-    <script src="/gogu/js/crypto-js.min.js"></script>
-    <script src="/gogu/js/supabase-js.js"></script>
-    <link rel="stylesheet" href="/gogu/css/katex.min.css">
-    <script src="/gogu/js/markdown-it.min.js"></script>
-    <script src="/gogu/js/katex.min.js"></script>
-    <script src="/gogu/js/texmath.min.js"></script>
-    <link rel="shortcut icon" href="/gogu/image/favicon.ico">
+    <script src="/js/jsencrypt.min.js"></script>
+    <script src="/js/crypto-js.min.js"></script>
+    <script src="/js/supabase-js.js"></script>
+    <link rel="stylesheet" href="/css/katex.min.css">
+    <script src="/js/markdown-it.min.js"></script>
+    <script src="/js/katex.min.js"></script>
+    <script src="/js/texmath.min.js"></script>
+    <link rel="shortcut icon" href="/image/favicon.ico">
 </head>
 
 <body>
-    <script src="/gogu/js/utils.js"></script>
-    <h1 id="titler" style="text-align: center;">Loading...</h1>
-    <div id="container">
-        <label for="upload">选择图片</label>
-        <input id="upload" type="file" required accept="image/*">
-        <a id="svg-src" href="#">链接</a>
+    <script src="/js/utils.js"></script>
+    <h1 id="titler" style="text-align: center;">头像上传</h1>
+    <div id="container" style="text-align: center">
+        <p>您只有一次上传头像机会，后续难以修改，请慎重选择</p>
+        <p>建议上传裁剪好的正方形图片，否则图片将自动调整缩放</p>
+        <input id="upload" type="file" required accept="image/png,image/jpeg,image/gif"/>
     </div>
     <div id="footer" style="width: 50%">
         <div style="text-align: center;">

@@ -7,7 +7,7 @@ md.use(window.texmath.use(window.katex), {
 
 function load() {
     if (localStorage.getItem("name") == null) {
-        window.location.replace("/gogu/signup.html");
+        window.location.replace("/signup.html");
     } else {
         document.getElementById("titler").innerHTML = "我的信息";
         document.getElementById("container").innerHTML = `
@@ -22,6 +22,6 @@ function load() {
     }
 }
 
-write_path("我的", "/gogu/prikey.html");
+write_path("我的", "/prikey.html");
 
 load();

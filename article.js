@@ -1,19 +1,4 @@
-const md = window.markdownit({});
-md.use(window.texmath.use(window.katex), {
-    engine: window.katex,
-    delimiters: 'dollars',
-    katexOptions: {macros: {"\\RR": "\\mathbb{R}"}}
-});
-
-function check_other_char(str) {
-    var s = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
-    var ok = 1;
-    for (var j = 0; j < str.length; j++)
-        ok &= s.includes(str[j]);
-    return ok;
-}
-
-function verify_article(id, pubkey, sign) {
+function verify(id, pubkey, sign) {
     try {
         const crypt = new JSEncrypt({default_key_size: 2048});
         crypt.setPublicKey(pubkey);
@@ -21,7 +6,7 @@ function verify_article(id, pubkey, sign) {
     } catch (error) {
         return false;
     }
-}
+} // 验证
 
 async function load_list() {
     const supabase = getClient();
@@ -50,13 +35,13 @@ async function load_list() {
                         ${localStorage.getItem("name")}
                     </div>
                     <!--div style="text-align: right;">
-                        <a href="/gogu/prikey.html">查看我的 priKey</a>
+                        <a href="/prikey.html">查看我的 priKey</a>
                         <br>
                         <a href="javascript:sign_out()" style="color: #ff0000">登出</a>
                     </div-->
                     <textarea id="article_title" rows="2" col="10" placeholder="标题"></textarea>
                     <textarea id="article_text" rows="10" style="width: 97%" placeholder="内容"></textarea>
-                    <button onclick="send_article()">发送</button>
+                    <button onclick="send()">发送</button>
                 </div>
             `;
         pageHTML += `<div style="display: grid; place-items: center;">`;
@@ -65,7 +50,7 @@ async function load_list() {
             userKey.set(user.name, user.pubkey);
         });
         articles.forEach(article => {
-            if (check_other_char(article.name) && verify_article(article.id, userKey.get(article.name), article.sign)) {
+            if (check_other_char(article.name) && verify(article.id, userKey.get(article.name), article.sign)) {
                 pageHTML += `
                     <div class="card" style="width: 70%;">
                         <div class="card_name"><p>${article.name}</p></div>
@@ -92,7 +77,7 @@ async function load_list() {
             if (errorm || erroru) {
                 titlerEl.innerHTML = "404";
                 containerEl.innerHTML = `<p style="text-align: center;">文章不见了呐~</p>`;
-            } else if (check_other_char(article[0].name) && verify_article(article[0].id, users[0].pubkey, article[0].sign)) {
+            } else if (check_other_char(article[0].name) && verify(article[0].id, users[0].pubkey, article[0].sign)) {
                 titlerEl.innerHTML = article[0].title;
                 containerEl.innerHTML = `
                         <div style="display: grid; place-items: center;">
@@ -111,9 +96,9 @@ async function load_list() {
             containerEl.innerHTML = `<p style="text-align: center;">文章不见了呐~</p>`;
         }
     }
-}
+} // 加载
 
-async function send_article() {
+async function send() {
     try {
         const supabase = getClient();
         const articleId = -Date.now();
@@ -148,9 +133,10 @@ async function send_article() {
     } catch (error) {
         alert('错误：' + error.message);
     }
-}
+} // 发送
 
-write_path("文章", "/gogu/article.html");
-if (getArgs('id') != null) write_path(getArgs('id'), `/gogu/article.html?id=${getArgs('id')})`);
-
-load_list();
+// 写入导航栏 {
+write_path("文章", "/article.html");
+if (getArgs('id') != null) write_path(getArgs('id').slice(1), `/article.html?id=${getArgs('id')})`);
+// }
+load_list(); // 初始加载

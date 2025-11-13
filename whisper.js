@@ -50,7 +50,7 @@ async function load_list() {
                         ${localStorage.getItem("name")}
                     </div>
                     <!--div style="text-align: right;">
-                        <a href="/gogu/prikey.html">查看我的 priKey</a>
+                        <a href="/prikey.html">查看我的 priKey</a>
                         <br>
                         <a href="javascript:sign_out()" style="color: #ff0000">登出</a>
                     </div-->
@@ -150,7 +150,7 @@ async function send_article() {
     }
 }
 
-write_path("文章", "/gogu/article.html");
-if (getArgs('id') != null) write_path(getArgs('id'), `/gogu/article.html?id=${getArgs('id')})`);
+write_path("文章", "/article.html");
+if (getArgs('id') != null) write_path(getArgs('id'), `/article.html?id=${getArgs('id')})`);
 
 load_list();

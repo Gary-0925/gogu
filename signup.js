@@ -45,14 +45,14 @@ async function sign_up() {
 
 async function load() {
     if (localStorage.getItem("name") != null) {
-        window.location.replace("/gogu/message.html");
+        window.location.replace("/message.html");
     } else {
         document.getElementById("titler").innerHTML = "注册";
         document.getElementById("container").innerHTML = `
             <div style="text-align: center;">
                 <p>请注意，账号注册后，如果登出，忘记 priKey 无法找回账号，或许可以找管理员把 priKey 要回来</p>
                 <textarea id="name_text" rows="2" cols="20" placeholder="昵称" spellcheck=false></textarea>
-                <p style="text-align: right;">或者<a href="/gogu/signin.html">登录</a></p>
+                <p style="text-align: right;">或者<a href="/signin.html">登录</a></p>
                 <button onclick="sign_up()">注册</button>
             </div>
         `;
